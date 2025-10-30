@@ -56,12 +56,21 @@
     margin: 2rem 0 1.5rem 0;
     font-size: 1.2rem;
     color: var(--accent-color);
-    background: rgba(6, 182, 212, 0.08);
+    background: rgba(16, 185, 129, 0.08);
     padding: 1rem 1.5rem;
     border-radius: 10px;
     font-weight: 600;
     text-align: center;
-    box-shadow: 0 2px 12px rgba(6, 182, 212, 0.08);
+    box-shadow: 0 2px 12px rgba(16, 185, 129, 0.08);
+    animation: flash 1.2s linear infinite;
+}
+
+@keyframes flash {
+    0%, 100% { background: rgba(16, 185, 129, 0.08); color: var(--accent-color); }
+    20% { background: rgba(16, 185, 129, 0.18); color: #fff; }
+    40% { background: rgba(16, 185, 129, 0.28); color: var(--primary-color); }
+    60% { background: rgba(16, 185, 129, 0.18); color: #fff; }
+    80% { background: rgba(16, 185, 129, 0.08); color: var(--accent-color); }
 }
 /* Reset and Base Styles */
 * {
@@ -71,16 +80,16 @@
 }
 
 :root {
-    --primary-color: #6366f1;
-    --secondary-color: #8b5cf6;
-    --accent-color: #06b6d4;
-    --bg-dark: #18183a;
-    --bg-darker: #0a0a1c;
-    --text-light: #22223b;
-    --text-gray: #6b7280;
-    --gradient-1: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --primary-color: #2563eb; /* Professional blue */
+    --secondary-color: #64748b; /* Muted slate */
+    --accent-color: #10b981; /* Emerald accent */
+    --bg-dark: #18181b; /* Deep neutral background */
+    --bg-darker: #111113; /* Even deeper neutral */
+    --text-light: #f3f4f6; /* Light text for dark bg */
+    --text-gray: #94a3b8; /* Muted gray for secondary text */
+    --gradient-1: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     --gradient-2: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-    --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.3);
+    --shadow-glow: 0 0 30px rgba(37, 99, 235, 0.18);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -344,12 +353,12 @@ html {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    color: #f8fafc; /* Light color for visibility */
+    color: var(--primary-color);
     background-image: none;
     background-clip: initial;
     -webkit-background-clip: initial;
     -webkit-text-fill-color: initial;
-    text-shadow: 0 2px 12px rgba(99,102,241,0.18);
+    text-shadow: 0 2px 12px rgba(37,99,235,0.18);
 }
 
 .text-reveal {
@@ -373,14 +382,14 @@ html {
 
 .hero-subtitle {
     font-size: 1.25rem;
-    background: #f3f4fa;
+    background: rgba(37,99,235,0.08);
     padding: 0.8rem 1.3rem;
     border-radius: 10px;
-    text-shadow: 0 2px 12px rgba(15,15,35,0.25);
+    text-shadow: 0 2px 12px rgba(15,15,35,0.18);
     margin-bottom: 2rem;
     opacity: 0;
     animation: fadeInUp 0.8s ease 1s forwards;
-    color: #22223b;
+    color: var(--text-light);
     background-image: none;
     background-clip: initial;
     -webkit-background-clip: initial;
@@ -412,7 +421,7 @@ html {
     background: var(--gradient-1);
     color: #fff;
     box-shadow: var(--shadow-glow);
-    border: 2px solid #6366f1;
+    border: 2px solid var(--primary-color);
     font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -429,8 +438,8 @@ html {
 
 .btn-secondary {
     background: #fff;
-    color: #6366f1;
-    border: 2px solid #6366f1;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -438,7 +447,7 @@ html {
 }
 
 .btn-secondary:hover, .btn-secondary:focus {
-    background: #6366f1;
+    background: var(--primary-color);
     color: #fff;
     transform: translateY(-2px);
     outline: 2px solid #6366f1;
@@ -489,7 +498,7 @@ html {
 
 .floating-card span {
     font-size: 1rem;
-    color: #22223b;
+    color: var(--primary-color);
     font-weight: 600;
     letter-spacing: 0.2px;
 }
@@ -717,12 +726,12 @@ html {
 .feature-item h4 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
-    color: #22223b;
+    color: var(--primary-color);
     font-weight: 700;
 }
 
 .feature-item p {
-    color: #444;
+    color: var(--text-gray);
     line-height: 1.7;
     font-size: 1.05rem;
 }
@@ -929,14 +938,14 @@ html {
 
 .footer-section h3,
 .footer-section h4 {
-    color: #22223b;
+    color: var(--primary-color);
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .footer-section p,
 .footer-section li {
-    color: #444;
+    color: var(--text-gray);
     line-height: 1.7;
     font-size: 1.05rem;
 }
@@ -985,7 +994,7 @@ html {
     text-align: center;
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #6366f1;
+    color: var(--primary-color);
     font-size: 1.05rem;
     font-weight: 600;
 }
